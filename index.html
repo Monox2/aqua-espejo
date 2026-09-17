@@ -141,15 +141,19 @@
     .step p{font-size:13px;color:#647983;margin:0}
 
     /* Nilo */
-    .nilo-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
-    .nilo-photo{background:#fff;border-radius:34px;border:1px solid #dfeef0;box-shadow:var(--shadow);padding:18px;overflow:hidden}
-    .nilo-photo img{max-height:560px;margin:auto;mix-blend-mode:multiply}
-    .nilo-copy .tag{display:inline-flex;background:rgba(38,198,201,.14);color:#087c82;font-weight:900;padding:8px 12px;border-radius:999px;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
-    .nilo-copy h2{margin-top:18px}
-    .traits{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px}
-    .trait{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
-    .trait strong{display:block;color:var(--navy);font-size:14px;margin-bottom:3px}
-    .trait span{font-size:12px;color:#6b7e88}
+    .nilo-showcase{background:linear-gradient(100deg,#f9ffff 0%,#edfafa 45%,#f7fcfd 100%);overflow:hidden}
+    .nilo-showcase-grid{display:grid;grid-template-columns:1.18fr repeat(3,.78fr) 1.05fr;gap:26px;align-items:center}
+    .nilo-intro h2{font-size:34px;margin:0 0 2px;letter-spacing:-.035em}
+    .nilo-intro h3{margin:0 0 14px;color:var(--aqua-2);font-size:21px}
+    .nilo-intro p{margin:0 0 18px;color:#526976;font-size:14px;max-width:290px}
+    .nilo-role{text-align:center;min-width:0}
+    .nilo-role-media{height:170px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:6px;overflow:hidden}
+    .nilo-role-media img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:24px;mix-blend-mode:multiply}
+    .nilo-role strong{display:block;color:var(--navy);font-size:16px;line-height:1.2;margin-bottom:3px}
+    .nilo-role span{display:block;color:#627681;font-size:12px;line-height:1.35}
+    .nilo-quote{padding-left:10px}
+    .nilo-quote blockquote{margin:0;color:var(--navy);font-size:clamp(24px,2.2vw,34px);line-height:1.18;font-weight:800;font-style:italic;letter-spacing:-.03em}
+    .nilo-quote .stroke{width:118px;height:8px;background:var(--aqua);border-radius:999px;transform:rotate(-8deg);margin:18px 0 0 auto;box-shadow:0 12px 0 rgba(38,198,201,.45)}
 
     /* Maintenance */
     .maintenance{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -221,9 +225,13 @@
       .feature:nth-child(2){border-right:0}
       .feature:nth-child(-n+2){border-bottom:1px solid var(--line)}
       .service-grid{grid-template-columns:1fr 1fr}
-      .report-grid,.nilo-grid,.faq,.contact-grid{grid-template-columns:1fr}
+      .report-grid,.faq,.contact-grid{grid-template-columns:1fr}
+      .nilo-showcase-grid{grid-template-columns:1fr 1fr 1fr;gap:28px}
+      .nilo-intro,.nilo-quote{grid-column:1/-1}
+      .nilo-intro p{max-width:650px}
+      .nilo-quote{padding-left:0;text-align:center}
+      .nilo-quote .stroke{margin:18px auto 0}
       .steps{grid-template-columns:1fr 1fr}
-      .nilo-photo{max-width:620px;margin:auto}
     }
 
     @media(max-width:680px){
@@ -234,7 +242,12 @@
       h1{font-size:52px}
       .section-head{display:block}
       .section-head .copy{margin-top:16px}
-      .trust-row,.features,.service-grid,.steps,.report-points,.traits,.maintenance,.form-grid{grid-template-columns:1fr}
+      .trust-row,.features,.service-grid,.steps,.report-points,.maintenance,.form-grid{grid-template-columns:1fr}
+      .nilo-showcase-grid{grid-template-columns:1fr}
+      .nilo-intro,.nilo-quote{grid-column:auto}
+      .nilo-role-media{height:220px;max-width:280px;margin:0 auto 8px}
+      .nilo-role{padding:12px 0}
+      .nilo-quote{padding-top:12px}
       .feature{border-right:0;border-bottom:1px solid var(--line)}
       .feature:last-child{border-bottom:0}
       .hero-art{min-height:470px}
@@ -390,20 +403,37 @@
       </div>
     </section>
 
-    <section class="section ice" id="nilo">
-      <div class="wrap nilo-grid">
-        <div class="nilo-photo"><img src="assets/nilo.png" alt="Nilo, guardián del agua de Aqua Espejo" /></div>
-        <div class="nilo-copy">
-          <span class="tag">Conoce a Nilo</span>
-          <h2>El guardián del agua.</h2>
-          <p class="lead">Nilo es la cara amable de Aqua Espejo. Nos ayuda a explicar el mantenimiento de forma sencilla y a recordar que lo que no ves también necesita cuidado.</p>
-          <div class="traits">
-            <div class="trait"><strong>Observador</strong><span>Se fija en los detalles que suelen pasar desapercibidos.</span></div>
-            <div class="trait"><strong>Confiable</strong><span>Comunica el proceso de manera clara.</span></div>
-            <div class="trait"><strong>Educativo</strong><span>Comparte consejos para cuidar el agua.</span></div>
-            <div class="trait"><strong>Recordable</strong><span>Hace más cercana la experiencia de servicio.</span></div>
-          </div>
-          <div style="margin-top:24px"><a class="btn btn-dark js-wa" href="#" data-message="Hola Nilo, quiero saber más sobre el servicio de Aqua Espejo.">Hablar con Aqua Espejo</a></div>
+    <section class="section nilo-showcase" id="nilo">
+      <div class="wrap nilo-showcase-grid">
+        <div class="nilo-intro">
+          <div class="eyebrow">Nuestra mascota</div>
+          <h2>Nilo</h2>
+          <h3>El guardián del agua</h3>
+          <p>Nilo es nuestro cocodrilo, un experto en el cuidado del agua. Nos ayuda a comunicar, educar y recordar la importancia del mantenimiento de tu cisterna.</p>
+          <a class="btn btn-primary js-wa" href="#" data-message="Hola Nilo, quiero conocer más sobre el servicio de Aqua Espejo.">Conoce más sobre Nilo →</a>
+        </div>
+
+        <article class="nilo-role">
+          <div class="nilo-role-media"><img src="assets/nilo-observador.png" alt="Nilo observando con una lupa" /></div>
+          <strong>Observador</strong>
+          <span>Detecta lo que otros no ven.</span>
+        </article>
+
+        <article class="nilo-role">
+          <div class="nilo-role-media"><img src="assets/nilo-confiable.png" alt="Nilo mostrando una señal de confianza" /></div>
+          <strong>Confiable</strong>
+          <span>Te acompaña en todo el proceso.</span>
+        </article>
+
+        <article class="nilo-role">
+          <div class="nilo-role-media"><img src="assets/nilo-educativo.png" alt="Nilo con una tabla de revisión" /></div>
+          <strong>Educativo</strong>
+          <span>Comparte consejos y buenas prácticas.</span>
+        </article>
+
+        <div class="nilo-quote" aria-label="Frase de Nilo">
+          <blockquote>“Lo que no ves también necesita mantenimiento.”</blockquote>
+          <div class="stroke" aria-hidden="true"></div>
         </div>
       </div>
     </section>
